@@ -33,11 +33,14 @@ app.get('/auth/me', checkAuth, UserController.getMe)
 
 
 //Post
-app.get('/posts', checkAuth, PostController.getAll)
+app.get('/posts', PostController.getAll)
 
-app.get('/posts/:id', checkAuth, PostController.getOne)
+app.get('/posts/:id', PostController.getOne)
 
 app.delete('/posts/:id', checkAuth, PostController.remove)
+
+app.patch('/posts/:id', checkAuth, PostController.update)
+
 
 
 app.post('/posts', checkAuth, postCreateValidation, PostController.create)
